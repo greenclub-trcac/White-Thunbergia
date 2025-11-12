@@ -41,6 +41,8 @@
       border-radius: 16px;
       padding: 24px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -52,9 +54,10 @@
     }
 
     .logo {
-      width: 80px;
+      width: 85px;
       height: auto;
       border-radius: 8px;
+      flex-shrink: 0;
     }
 
     .plant-header {
@@ -92,7 +95,7 @@
 
     .plant-img {
       width: 100%;
-      max-width: 300px;
+      max-width: 340px;
       object-fit: cover;
       border-radius: 12px;
       margin: 10px auto 20px;
@@ -122,14 +125,15 @@
 
     #enableAudioBtn {
       display: none;
-      margin: 10px auto 20px;
-      padding: 20px 60px;
+      margin: 15px auto;
+      padding: 14px 50px;
       border-radius: 8px;
       border: none;
       background: var(--accent);
-      color: #c0c0c0;
+      color: #fff;
       font-weight: 600;
       cursor: pointer;
+      font-size: 16px;
       transition: background 0.3s;
     }
 
@@ -146,14 +150,55 @@
       width: 100%;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
+    /* ---------- Responsive Tweaks ---------- */
+    @media (max-width: 768px) {
       body { padding: 10px; }
-      .container { padding: 18px; }
-      .logo { width: 70px; }
-      .plant-title { font-size: 24px; }
-      .desc { font-size: 14px; }
-      footer { font-size: 13px; }
+
+      .container {
+        padding: 18px;
+        border-radius: 12px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 70px;
+      }
+
+      .plant-title {
+        font-size: 24px;
+      }
+
+      .meta {
+        font-size: 14px;
+      }
+
+      .desc {
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      #enableAudioBtn {
+        width: 100%;
+        padding: 14px;
+        font-size: 15px;
+      }
+
+      footer {
+        font-size: 13px;
+        padding: 6px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .plant-title { font-size: 22px; }
+      .species { font-size: 15px; }
+      .desc { font-size: 13px; }
+      .logo { width: 60px; }
     }
   </style>
 </head>
@@ -161,7 +206,8 @@
   <div class="container" id="app">
     <header>
       <a href="http://trcac.org.in/">
-      <img src="assets/Trcaclogo.png" alt="Left Logo" class="logo"></a>
+        <img src="assets/Trcaclogo.png" alt="Left Logo" class="logo">
+      </a>
       <div class="plant-header">
         <div class="plant-title" id="plantName">Plant</div>
         <div class="meta" id="plantLatin"></div>
